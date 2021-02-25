@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<title>Lista de Cadastrados</title>
+</head>
+<body>
+
+<h1>Lista de Pessoas Cadastradas</h1>
+<br/>
+
+<br>
+	<div th:each="m : ${msg}">
+		<span th:text="${m}" style="color: #228B22; font-weight: bold;"></span>
+	</div>
+<br>
+
+<a href="/cadastropessoa">Ir para página de cadastro</a>
+<br/>
+<br/>
+
+<a href="/distribuir">Distribuir pessoal pelas salas</a>
+
+<table>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Sobrenome</th>
+			<th>Espaço Café(1ª etapa)</th>
+			<th>Sala(1ª etapa)</th>
+			<th>Espaço Café(2ª etapa)</th>
+			<th>Sala(2ª etapa)</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr th:each = "pessoa : ${pessoas}">
+			<td th:text="${pessoa.id}"></td>
+			<td th:text="${pessoa.nomePessoa}"></td>
+			<td th:text="${pessoa.sobrenomePessoa}"></td>			
+			<td th:text="${pessoa.cafeEtapa1}"></td>
+			<td th:text="${pessoa.salaEtapa1}"></td>
+			<td th:text="${pessoa.cafeEtapa2}"></td>
+			<td th:text="${pessoa.salaEtapa2}"></td>
+		</tr>
+	</tbody>
+</table>
+
+</body>
+</html>

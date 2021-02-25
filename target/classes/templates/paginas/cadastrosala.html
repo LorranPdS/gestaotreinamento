@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<title>Cadastro para Salas</title>
+</head>
+<body>
+
+<h1>Cadastro de Salas</h1>
+
+<br>
+	<div th:each="m : ${msg}">
+		<span th:text="${m}" style="color: #228B22; font-weight: bold;"></span>
+	</div>
+<br>
+
+<form action="/cadastrarSala" method="post">
+	<label>Nome da Sala</label>
+	<input name="nomeSala" autofocus="autofocus" required="required" />
+	<button>Cadastrar</button>
+</form>
+<br/>
+<br/>
+<br/>
+
+Para cadastrar pessoas, <a href="/cadastropessoa">clique aqui</a>
+
+<table>
+	
+	<caption>Salas Cadastradas</caption>
+	
+	<thead>
+		<tr>
+			<th>Número</th>
+			<th>Nome</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr th:each = "sala : ${salas}">
+			<td th:text="${sala.id}"></td>
+			<td th:text="${sala.nomeSala}"></td>
+		</tr>
+	</tbody>
+</table>
+
+</body>
+</html>
