@@ -9,24 +9,112 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 <body>
 
-<h1>Lista de Pessoas Cadastradas</h1>
-<br/>
+	<h2>Sistema de Gerenciamento</h2>
 
-<br>
+1. Para voltar à página inicial, <a href="/">CLIQUE AQUI</a><p/>
+
+2. Para cadastrar salas, <a href="/cadastrarSala">CLIQUE AQUI</a><p/>
+
+3. Para voltar à página de cadastro de pessoal, <a href="/cadastropessoa">CLIQUE AQUI</a><p/>
+
+	
+<a href="/distribuir" class="waves-effect waves-light btn">DISTRIBUIR PESSOAL POR SALAS</a>
+	
 	<div th:each="m : ${msg}">
-		<span th:text="${m}" style="color: #228B22; font-weight: bold;"></span>
-	</div>
-<br>
+		<span th:text="${m}" style="color: #556B2F; font-weight: bold;"></span>
+	</div><p/>
 
-<a href="/cadastropessoa">Ir para página de cadastro</a>
-<br/>
-<br/>
+<h2>Pesquisar por nome</h2>
 
-<a href="/distribuir">Distribuir pessoal pelas salas</a>
+<div class="row">
+
+	<form action="/pesquisarpessoa" method="post" class="col s12">
+
+		<div class="row">
+			<div class="input-field col s4">
+				<label class="active">Insira o nome</label>
+				<input name="primeironome" autofocus />
+			</div>
+			
+			<div class="input-field col s6">
+				<button class="waves-effect waves-light btn">Buscar</button>
+			</div>	
+		</div>
+	</form>
+</div>
+
+
+<!--  
+TENTAR ATÉ O FIM PEGAR ESSES TIPOS INDIVIDUALMENTE ----------------------------------------------
+
+<h2>Pesquisar por sala e etapa</h2>
+
+<div class="row">
+	<form action="/pesquisaSalaEtapa" method="post" class="col s12">
+			
+			<div class="input-field col s2">
+				<label for="etapa" class="active">Etapa</label><p/>
+					<select class="browser-default" name="etapa" required>
+						<option value="" disabled selected>[Selecione]</option>
+						<option value="p.salaEtapa1" label="Etapa 1" />
+						<option value="p.salaEtapa2" label="Etapa 2" />
+					</select>
+			</div>
+			
+		<div class="row">
+			<div class="input-field col s2">
+				<label for="numeroSala" class="active">Número da Sala</label><p/>
+					<input type="number" name="numeroSala" min="1" max="20" required />
+			</div><br/>
+			
+			<div class="input-field col s4">
+				<button class="waves-effect waves-light btn">Buscar</button>
+			</div>	
+		</div>
+	</form>
+</div>
+
+<h2>Pesquisar por espaço do café e etapa</h2>
+
+<div class="row">
+	<form action="/pesquisaLocalCafe" method="post" class="col s12">
+
+		<div class="row">
+			<div class="input-field col s2">
+				<label class="active">Etapa</label><p/>
+					<select name="etapa" class="browser-default" required>
+						<option value="" disabled selected label="[Selecione]"/>
+						<option value="p.cafe_etapa1" label="Etapa 1" />
+						<option value="p.cafe_etapa2" label="Etapa 2" />
+					</select>
+			</div>
+		
+			<div class="input-field col s2">
+				<label class="active">Espaço do Café</label><p/>
+					<select name="localCafe" class="browser-default" required>
+						<option value="" disabled selected label="[Selecione]"/>
+						<option value="Espaço para Café 1" label="Local 1" />
+						<option value="Espaço para Café 2" label="Local 2" />
+					</select>
+			</div>
+			<br/>
+			
+			<div class="input-field col s4">
+				<button class="waves-effect waves-light btn">Buscar</button>
+			</div>	
+		</div>
+	</form>
+</div>
+<p/>
+
+-->
+
+	
+<h2>Listagem de Pessoal</h2>
 
 <table>
 	<thead>
-		<tr>
+		<tr bgcolor="#26A69A">
 			<th>Id</th>
 			<th>Nome</th>
 			<th>Sobrenome</th>

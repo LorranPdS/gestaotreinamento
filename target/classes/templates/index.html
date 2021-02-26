@@ -10,17 +10,15 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 <body>
 
-<h1>Página Inicial</h1>
+<h2>Sistema de Gerenciamento</h2>
 
-<br>
 	<div th:each="m : ${msg}">
 		<span th:text="${m}" style="color: #FF0000; font-weight: bold;"></span>
 	</div>
-<br>
+<p/>
 
-Para cadastrar as salas, <a href="/cadastrarSala">clique aqui</a><br>
-
-Para adicionar as pessoas nas salas, <a href="/cadastropessoa">clique aqui</a>
+1. Para cadastrar salas, <a href="/cadastrarSala">CLIQUE AQUI</a>.
+<p/>
 
 </body>
 </html>

@@ -17,14 +17,14 @@ public class Pessoa implements Serializable {
 	@GeneratedValue(generator = "gen_idpessoa", strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false)
+	@Column(nullable = false, length = 15)
 	private String nomePessoa;
 
-	@Column(nullable = false)
+	@Column(nullable = false, length = 25)
 	private String sobrenomePessoa;
 
-	private Long salaEtapa1;
-	private Long salaEtapa2;
+	private Integer salaEtapa1;
+	private Integer salaEtapa2;
 
 	private String cafeEtapa1;
 	private String cafeEtapa2;
@@ -53,19 +53,19 @@ public class Pessoa implements Serializable {
 		this.sobrenomePessoa = sobrenomePessoa;
 	}
 
-	public Long getSalaEtapa1() {
+	public Integer getSalaEtapa1() {
 		return salaEtapa1;
 	}
 
-	public void setSalaEtapa1(Long salaEtapa1) {
+	public void setSalaEtapa1(Integer salaEtapa1) {
 		this.salaEtapa1 = salaEtapa1;
 	}
 
-	public Long getSalaEtapa2() {
+	public Integer getSalaEtapa2() {
 		return salaEtapa2;
 	}
 
-	public void setSalaEtapa2(Long salaEtapa2) {
+	public void setSalaEtapa2(Integer salaEtapa2) {
 		this.salaEtapa2 = salaEtapa2;
 	}
 
