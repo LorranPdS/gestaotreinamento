@@ -14,8 +14,11 @@ import com.gestaotreinamento.model.Sala;
 public interface SalaRepository extends CrudRepository<Sala, Long> {
 
 	@Query("select count(id) from Sala s")
-	public Integer findTotalSalas();
+	Integer findTotalSalas();
 	
 	@Query("select s.id from Sala s")
-	public List<Long> findAllId();
+	List<Long> findAllId();
+	
+	@Query("select p from Sala p where nomeSala like %?1%")
+	List<Sala> findSalaPorNome(String nomeSala);
 }

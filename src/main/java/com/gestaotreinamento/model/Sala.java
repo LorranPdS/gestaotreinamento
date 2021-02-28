@@ -17,7 +17,7 @@ public class Sala implements Serializable {
 	@GeneratedValue(generator = "gen_id", strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false)
+	@Column(nullable = false, length = 25)
 	private String nomeSala;
 
 	private Byte lotacao = 20;

@@ -13,10 +13,11 @@ xmlns:th="http://www.thymeleaf.org">
 
 1. Para voltar à página inicial, <a href="/">CLIQUE AQUI</a>.<p/>
 
-2. Para cadastrar pessoas, <a href="/cadastropessoa">CLIQUE AQUI</a>.<p/>
+2. Para cadastrar pessoas, <a id="lnkCadastrarPessoa" href="/cadastropessoa">CLIQUE AQUI</a>.<p/>
 
 	<div th:each="m : ${msg}">
-		<span th:text="${m}" style="color: #228B22; font-weight: bold;"></span>
+		<span id="salaCadastrada" th:text="${m}" style="color: #228B22; 
+				font-weight: bold; text-transform: uppercase;"></span>
 	</div>
 <p/>
 
@@ -28,19 +29,43 @@ xmlns:th="http://www.thymeleaf.org">
 		<div class="row">
 			<div class="input-field col s5">
 				<label class="active">Nome da Sala</label>
-				<input name="nomeSala" autofocus required maxlength="15" />
+				<input name="nomeSala" autofocus required maxlength="25" />
 			</div>
 			
 			<div class="input-field col s2">
-				<button class="waves-effect waves-light btn">Cadastrar</button>
+				<button id="btnCadastrar" class="waves-effect waves-light btn">Cadastrar</button>
 			</div>	
 		</div>
 	</form>
 </div>
 <p/>
 
+<h2>Pesquisa por Salas</h2>
+<div class="row">
+
+	<form action="/pesquisarSala" method="post" class="col s12">
+
+		<div class="row">
+			<div class="input-field col s4">
+				<label class="active">Insira o nome da sala</label>
+				<input name="pesqNomeSalas" />
+			</div>
+			
+			<div class="input-field col s6">
+				<button id="btnBuscar" class="waves-effect waves-light btn">Buscar</button>
+			</div>	
+		</div>
+	</form>
+</div>
+<p/>
+
+<a href="/apagarTudo" class="waves-effect waves-light btn" 
+				style="background: #FF0000; font-weight: bold;" 
+				title="Exclui todas as salas e usuários do sistema" >APAGAR TUDO</a>
+<p/>
+
 <table>
-	<caption><b>SALAS CADASTRADAS</b></caption>
+	<caption><b>Listagem de Salas</b></caption>
 	<thead>
 		<tr bgcolor="#26A69A">
 			<th>Número</th>

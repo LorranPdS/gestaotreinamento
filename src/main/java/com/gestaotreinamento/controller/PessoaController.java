@@ -104,6 +104,17 @@ public class PessoaController {
 		return modelAndView;
 	}
 	
+	@GetMapping(value = "/apagarTudo")
+	public ModelAndView apagarTudo() {
+		pessoaRepository.deleteAll();
+		salaRepository.deleteAll();
+		
+		ModelAndView modelAndView = new ModelAndView("paginas/cadastrosala");
+		modelAndView.addObject("msg", "Salas e Usuários foram removidos com sucesso!");
+		
+		return modelAndView;
+	}
+	
 	private List<Pessoa> distribuirPessoasPorSala() {
 
 		List<Pessoa> pessoasCadastradas = pessoaRepository.findAllOrderById();

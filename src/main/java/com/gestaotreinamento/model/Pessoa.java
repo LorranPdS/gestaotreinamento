@@ -17,7 +17,7 @@ public class Pessoa implements Serializable {
 	@GeneratedValue(generator = "gen_idpessoa", strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false, length = 15)
+	@Column(nullable = false, length = 25)
 	private String nomePessoa;
 
 	@Column(nullable = false, length = 25)
@@ -28,7 +28,7 @@ public class Pessoa implements Serializable {
 
 	private String cafeEtapa1;
 	private String cafeEtapa2;
-
+	
 	public Long getId() {
 		return id;
 	}
